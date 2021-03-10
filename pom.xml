@@ -30,7 +30,7 @@
 		<dependency>
 			<groupId>com.github.ukgovld</groupId>
 			<artifactId>registry-pulsar-plugin</artifactId>
-			<version>1.0.0-SNAPSHOT</version>
+			<version>1.0.0</version>
 		</dependency>
 
 		<dependency>
@@ -59,6 +59,31 @@
 		</dependency>
 	</dependencies>
 
+	<repositories>
+		<repository>
+			<id>ukgovld-s3-release</id>
+			<name>UKGovLD release repository</name>
+			<url>s3://ukgovld/release</url>
+			<releases>
+				<enabled>true</enabled>
+			</releases>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+		</repository>
+		<repository>
+			<id>ukgovld-s3-snapshot</id>
+			<name>UKGovLD snapshot repository</name>
+			<url>s3://ukgovld/snapshot</url>
+			<releases>
+				<enabled>false</enabled>
+			</releases>
+			<snapshots>
+				<enabled>true</enabled>
+			</snapshots>
+		</repository>
+	</repositories>
+
 	<build>
 		<plugins>
 			<plugin>
@@ -86,6 +111,11 @@
 				<groupId>org.apache.maven.wagon</groupId>
 				<artifactId>wagon-ftp</artifactId>
 				<version>2.12</version>
+			</extension>
+			<extension>
+				<groupId>org.springframework.build</groupId>
+				<artifactId>aws-maven</artifactId>
+				<version>5.0.0.RELEASE</version>
 			</extension>
 		</extensions>
 	</build>
